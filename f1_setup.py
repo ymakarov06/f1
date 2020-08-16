@@ -66,17 +66,7 @@ laps['std_time'].describe()
 laps.drop(columns = ['temp1', 'temp2', 'temp3'], inplace = True)
 
 # Export
+laps.sort_values('lap_id', inplace = True)
 laps.to_excel('laps_cleaned.xlsx', index = False)
 
-# Separately, a list of all unique laps
-unique_laps = laps[['lap_id', 'raceId']]
-unique_laps.drop_duplicates(inplace = True)
-unique_laps2 = unique_laps.copy()
-unique_laps['driver'] = 1
-unique_laps2['driver'] = 2
-unique_laps = pd.concat([unique_laps, unique_laps2], axis = 0)
-unique_laps.to_excel('unique_laps.xlsx', index = False)
-
-laps['id'] = laps['pilot'] + laps['lap_id'].astype(str)
-laps['pilot'].nunique()
 ###END###
