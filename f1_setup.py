@@ -1,5 +1,6 @@
 import os
-os.chdir('C:/Users/ymakarov/Desktop/python_folder/f1')
+import config
+os.chdir(config.path)
 import pandas as pd
 import numpy as np
 pd.set_option('display.float_format', lambda x: '%.5f' % x)
